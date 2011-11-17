@@ -5,5 +5,5 @@
     android:layout_height="fill_parent"
     >
     <Button android:id="@+id/connectButton" android:layout_width="wrap_content" android:text="@string/connect_Button" android:layout_height="wrap_content"></Button>
-<VideoView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/streamView"></VideoView>
+<VideoView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/streamView"></VideoView>
 </LinearLayout>
