@@ -3,4 +3,5 @@
     <string name="hello">Hello World, ELectureActivity!</string>
     <string name="app_name">eLecture</string>
     <string name="connect_Button">Connect</string>
+    <string name="sample_url">http://commonsware.com/misc/test2.3gp</string>
 </resources>
