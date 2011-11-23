@@ -24,14 +24,14 @@ public class ELectureActivity extends Activity {
        
         button = (Button)findViewById(R.id.connectButton);
         button.setOnClickListener(playListener);
-        button.setText("Connect");
+        //button.setText("Connect");
         text = (TextView)findViewById(R.id.url);
     }
     
     private OnClickListener playListener = new OnClickListener() {
         public void onClick(View v) {
         	if(button.getText().toString().equals("Connect")){
-        		button.setText("Disconnect"); 
+        		//button.setText("Disconnect"); 
         		extra.putCharSequence("url", text.getText());
         		Intent i = new Intent(getApplicationContext(), StreamPlayer.class);
         		i.putExtras(extra);
