@@ -4,9 +4,29 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/url" android:text="@string/sample_url">
-        <requestFocus></requestFocus>
-    </EditText>
-    <Button android:id="@+id/connectButton" android:layout_width="wrap_content" android:text="@string/connect_Button" android:layout_height="wrap_content"></Button>
-<VideoView android:layout_width="300px" android:layout_height="240px" android:id="@+id/streamView"></VideoView>
+
+    <Spinner
+        android:id="@+id/Height"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:prompt="@string/Height" />
+
+    <Spinner
+        android:id="@+id/Weight"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:prompt="@string/Weight" />
+
+    <Spinner
+        android:id="@+id/Age"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:prompt="@string/Age" />
+
+    <Button
+        android:id="@+id/wButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/w_button" >
+</Button>
 </LinearLayout>
