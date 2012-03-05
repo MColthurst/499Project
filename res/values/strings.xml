@@ -66,4 +66,8 @@
         <item >80</item>
         <item >&gt;80</item>        
     </string-array>
+    <string name="name">Carseat Name</string>
+    <string name="type">Carseat Type</string>
+    <string name="details">Carseat Details</string>
+    <string name="price">Carseat Price</string>
 </resources>
