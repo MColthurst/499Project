@@ -69,7 +69,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      * @param keyValue
      * @return true if primary key exists false otherwise
      *
-     * @author Matt Buller-Colthurst
      */
     private boolean primaryKeyExists(String keyValue) {
         List<Element> records = this.getAllRecords();
@@ -91,7 +90,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      * @return Created Element
      * @throws Exception if data given is not a string or primary key already exists
      *
-     * @author Matt Buller-Colthurst
      */
     public Element create(Object key, Object... data) throws Exception {
         if (key instanceof String) {
@@ -153,11 +151,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      * the parameter is equivalent to the keyToChange then replace the current
      * node with the newValue object
      *
-     * In order to test the function we added Update menu items and functions
-     * in MainFrame.java and adjusted the propertyChange function in
-     * BeanContainer.java
-     *
-     * @author Brad Buller-Colthurst
      */
     public boolean update(Object primaryKey, Object keyToChange, Object newValue) throws Exception {
         if (!(primaryKey instanceof String)) {
@@ -206,7 +199,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      * @return a boolean value to make sure the delete was successful
      * @throws Exception
      *
-     * @author Brad Buller-Colthurst
      */
     public boolean delete(Object key) throws Exception {
         if (key instanceof String) {
@@ -235,7 +227,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      *
      * @throws Exception when no file is found at 'resourceName'
      *
-     * @author Matt Buller-Colthurst
      */
     public void commit() throws Exception {
         PrintWriter pw = new PrintWriter(new FileOutputStream(resourceName), true);
@@ -251,7 +242,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      *
      * @return the number of elements
      *
-     * @author Matt Buller-Colthurst
      */
     public int size() {
         int size = 0;
@@ -269,7 +259,6 @@ public class XMLAdapter implements DBAdapter<Element> {
      *
      * @return a list of all those elements found
      *
-     * @author Matt Buller-Colthurst
      */
     public List<Element> getAllRecords() {
         ArrayList<Element> retNodes = new ArrayList<Element>();

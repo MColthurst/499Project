@@ -23,7 +23,15 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class XMLHelper {
-    public static Document xmlStringToDocument(String xmlString) throws IOException,ParserConfigurationException,SAXException {
+    
+	/**
+     * Given a XML String it returns a XML Document
+     *
+     * @param string
+     * @return doc
+     * @throws Exception
+     */
+	public static Document xmlStringToDocument(String xmlString) throws IOException,ParserConfigurationException,SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         InputSource is = new InputSource(new StringReader(xmlString));

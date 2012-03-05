@@ -6,11 +6,6 @@ package com.cs.uwindsor.group.CARE.db;
 
 import java.util.List;
 
-/**
- * A reference implementation of this interface would serve as the data abstraction layer for any Relational(e.g. Databases),
- * Textual (e.g. csv files) or hierarchical data (e.g. XML). It offers trivial CRUD operation for underlying data source.
- * CRUD = Create, Read, Update and Delete operations.
- */
 public interface DBAdapter<T> {
 
     /**
