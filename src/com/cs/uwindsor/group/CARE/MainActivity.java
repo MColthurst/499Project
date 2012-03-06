@@ -8,20 +8,30 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-	Button button;
+	Button buttonT;
+	Button buttonS;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 	    
-        button = (Button)findViewById(R.id.tButton);
-        button.setOnClickListener(tListener);     
+        buttonT = (Button)findViewById(R.id.t_Button);
+        buttonT.setOnClickListener(tListener);            
+        buttonS = (Button)findViewById(R.id.s_Button);
+        buttonS.setOnClickListener(sListener);  
 	}
 	
     private OnClickListener tListener = new OnClickListener() {
         public void onClick(View v) {
         	Intent i = new Intent(getApplicationContext(), TypeActivity.class);
+        	startActivity(i);
+        }
+    };
+    
+    private OnClickListener sListener = new OnClickListener() {
+        public void onClick(View v) {
+        	Intent i = new Intent(getApplicationContext(), SearchActivity.class);
         	startActivity(i);
         }
     };
