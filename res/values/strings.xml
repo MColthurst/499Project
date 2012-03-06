@@ -71,6 +71,14 @@
     <string name="details">Carseat Details</string>
     <string name="price">Carseat Price</string>
     <string name="type_button">Type</string>
-    <string name="searchBox">Enter Search Text</string>
+    <string name="nameBox">Enter Search Text</string>
     <string name="searchButton">Search</string>
+    <string-array name="rating_array">
+        <item >0</item>
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+        <item >4</item>
+        <item >5</item>
+    </string-array>
 </resources>
