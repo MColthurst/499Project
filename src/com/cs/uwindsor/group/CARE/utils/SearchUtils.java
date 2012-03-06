@@ -3,6 +3,7 @@ package com.cs.uwindsor.group.CARE.utils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -21,17 +22,13 @@ public class SearchUtils {
 	static String rValue = null;
 
 	
-	public static String Searchbyname(Context context, String name){
+	public static String Search(Context context, Map<String, String> map){
 		
 		final Context that = (Context)context;
 		
-		name = name.replaceAll("\\s", "+");
-		Log.d("text changed to", name);
-		String url = baseURL.concat("name=" + name);
+		String url = buildurl(map);
 		Log.d("url ", url);
-		
-		RequestParams params = new RequestParams();
-		params.put("name", name);
+
 		client.get(url, new AsyncHttpResponseHandler(){
 			
 			@Override
@@ -54,5 +51,19 @@ public class SearchUtils {
 			}
 		});
 		return rValue;
+	}
+
+
+	private static String buildurl(Map<String, String> map) {
+		String url = baseURL;
+		for (String key : map.keySet()) {
+			if(map.get(key) != null){
+				url = url.concat(key + "=");
+				String temp = map.get(key);
+				temp = temp.replaceAll("\\s", "+");
+				url = url.concat(temp + "&");
+			}
+		}
+		return url;
 	}
 }

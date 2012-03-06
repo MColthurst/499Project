@@ -1,5 +1,8 @@
 package com.cs.uwindsor.group.CARE;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 import android.app.Activity;
@@ -14,25 +17,31 @@ import android.widget.Toast;
 
 public class SearchActivity extends Activity{
 	Button button;
-	TextView text;
+	TextView name;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);
 	    
-	    text = (TextView)findViewById(R.id.searchBox);
+	    name = (TextView)findViewById(R.id.nameText);
         button = (Button)findViewById(R.id.s_button);
         button.setOnClickListener(sListener);     
 	}
 	
     private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
-        	Log.d("text is ", text.getText().toString());
-        	String xml = SearchUtils.Searchbyname(getApplicationContext(), text.getText().toString());
+        	Log.d("text is ", name.getText().toString());
+        	String xml = SearchUtils.Search(getApplicationContext(), buildmap());
         	Intent i = new Intent(getApplicationContext(), ListActivity.class);
         	i.putExtra("xml", xml);
         	startActivity(i);
         }
+
+		private Map<String, String> buildmap() {
+        	Map<String, String> map = new TreeMap<String, String>();
+			map.put("name", name.getText().toString());
+			return map;
+		}
     };
 }
