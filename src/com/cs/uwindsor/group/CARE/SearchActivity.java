@@ -30,9 +30,9 @@ public class SearchActivity extends Activity{
         public void onClick(View v) {
         	Log.d("text is ", text.getText().toString());
         	String xml = SearchUtils.Searchbyname(getApplicationContext(), text.getText().toString());
-        	Toast.makeText(getApplicationContext(), xml, Toast.LENGTH_LONG);
-        	//Intent i = new Intent(getApplicationContext(), TypeActivity.class);
-        	//startActivity(i);
+        	Intent i = new Intent(getApplicationContext(), ListActivity.class);
+        	i.putExtra("xml", xml);
+        	startActivity(i);
         }
     };
 }

@@ -16,7 +16,7 @@ import com.cs.uwindsor.group.CARE.http.*;
 
 
 public class SearchUtils {
-	private final static String baseURL = "http://care.cs.uwindsor.ca/?";
+	private static final String baseURL = "http://care.cs.uwindsor.ca/?";
 	private static AsyncHttpClient client = new AsyncHttpClient();
 	static String rValue = null;
 
@@ -25,9 +25,14 @@ public class SearchUtils {
 		
 		final Context that = (Context)context;
 		
+		name = name.replaceAll("\\s", "+");
+		Log.d("text changed to", name);
+		String url = baseURL.concat("name=" + name);
+		Log.d("url ", url);
+		
 		RequestParams params = new RequestParams();
 		params.put("name", name);
-		client.post(baseURL, params, new AsyncHttpResponseHandler(){
+		client.get(url, new AsyncHttpResponseHandler(){
 			
 			@Override
 			public void onSuccess (String response) {
