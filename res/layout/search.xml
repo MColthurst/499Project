@@ -17,7 +17,9 @@
         android:layout_width="500px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/name"/>
+        android:layout_below="@+id/name">
+                <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/price"
@@ -49,10 +51,7 @@
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/id" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_below="@+id/id"/>
 
     <Spinner
         android:id="@+id/ratingMenu"
@@ -75,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/idText"
-        android:text="Rating: "
+        android:text="Min Rating: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

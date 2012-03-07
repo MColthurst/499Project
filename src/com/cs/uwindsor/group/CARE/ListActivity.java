@@ -37,6 +37,7 @@ import android.widget.ListView;
 
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
 import com.cs.uwindsor.group.CARE.db.XMLHelper;
+import com.cs.uwindsor.group.CARE.utils.ListUtils;
 
 public class ListActivity extends Activity{
 	List<Element> records = new ArrayList<Element>();
@@ -70,10 +71,9 @@ public class ListActivity extends Activity{
 
 			public void onItemClick (AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
-				Log.d("clicked", records.get(arg2).toString());
-				// arg2 is position;
-				//m = movies[arg2];
-				//MovieListUtils.handleSelection(that, m, true);
+				Log.d("clicked", records.get(arg2).getChildNodes().item(0).toString());
+				Element e = records.get(arg2);
+				ListUtils.viewDetails(getApplicationContext(), e);
 				// Cant be bothered using a real check condition
 			}
 		});
