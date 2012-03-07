@@ -9,9 +9,11 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.cs.uwindsor.group.CARE.ListActivity;
 import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
 import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
@@ -20,19 +22,12 @@ import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 public class SearchUtils {
 	private static final String baseURL = "http://care.cs.uwindsor.ca/?";
 	private static AsyncHttpClient client = new AsyncHttpClient();
-	static Document rValue;
+	static String xml = new String();
 
 	
-	public static Document Search(Context context, Map<String, String> map){
+	public static void Search(Context context, Map<String, String> map){
 		
 		final Context that = (Context)context;
-		
-		try {
-			rValue = XMLHelper.createNewDocument();
-		} catch (ParserConfigurationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		String url = buildurl(map);
 		Log.d("url ", url);
@@ -41,19 +36,13 @@ public class SearchUtils {
 			
 			@Override
 			public void onSuccess (String response) {
-				Log.i("xml ", response);
-				try {
-					rValue = XMLHelper.xmlStringToDocument(response);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ParserConfigurationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SAXException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Log.d("xml ", response);
+				xml = response;
+				
+	        	Intent i = new Intent(that, ListActivity.class);
+	        	i.putExtra("xml", xml);
+	        	i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	        	that.startActivity(i);
 			}
 
 			@Override
@@ -66,10 +55,9 @@ public class SearchUtils {
 
 			@Override
 			public void onFinish () {
-
+				
 			}
 		});
-		return rValue;
 	}
 
 

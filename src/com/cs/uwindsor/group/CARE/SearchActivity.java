@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.locks.Lock;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -35,6 +36,7 @@ public class SearchActivity extends Activity{
 	TextView name;
 	TextView price;
 	String rating = new String();
+	String xml = new String();
 	XMLAdapter xmlAdapter;
 	
 	@Override
@@ -61,24 +63,7 @@ public class SearchActivity extends Activity{
     private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
         	Log.d("text is ", name.getText().toString());
-        	Document xml = SearchUtils.Search(getApplicationContext(), buildmap());
-        	
-        	try {
-        		xmlAdapter = new XMLAdapter(xml, "id");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SAXException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-        	Intent i = new Intent(getApplicationContext(), ListActivity.class);
-        	i.putExtra("xml", xmlAdapter);
-        	startActivity(i);
+        	SearchUtils.Search(getApplicationContext(), buildmap());
         }
     };
 
@@ -92,7 +77,6 @@ public class SearchActivity extends Activity{
     	    @Override
     	    public void onNothingSelected(AdapterView<?> arg0) {
     	    	// TODO Auto-generated method stub
-		
     	    }
     }
     
