@@ -18,8 +18,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class XMLAdapter implements DBAdapter<Element> {
+
+public class XMLAdapter implements Parcelable, DBAdapter<Element> {
 
     private String resourceName;
     private String entityElementsName;
@@ -33,6 +36,15 @@ public class XMLAdapter implements DBAdapter<Element> {
      */
     public XMLAdapter(String resourceName, String entityElementsName) throws IOException, ParserConfigurationException, SAXException {
         this.init(resourceName, entityElementsName);
+    }
+    
+    public XMLAdapter(Document resourceName, String entityElementsName) throws IOException, ParserConfigurationException, SAXException {
+        this.initd(resourceName, entityElementsName);
+    }
+    
+    private void initd(Document resourceName, String entityElementsName) throws IOException, ParserConfigurationException, SAXException {
+        this.entityElementsName = entityElementsName;
+        this.dom = resourceName;
     }
 
     private void init(String resourceName, String entityElementsName) throws IOException, ParserConfigurationException, SAXException {
@@ -269,5 +281,17 @@ public class XMLAdapter implements DBAdapter<Element> {
             }
         return retNodes;
     }
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

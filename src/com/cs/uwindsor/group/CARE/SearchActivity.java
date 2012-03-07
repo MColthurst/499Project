@@ -1,7 +1,16 @@
 package com.cs.uwindsor.group.CARE;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +25,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.cs.uwindsor.group.CARE.db.XMLAdapter;
+import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class SearchActivity extends Activity{
@@ -24,7 +35,8 @@ public class SearchActivity extends Activity{
 	TextView name;
 	TextView price;
 	String rating = new String();
-
+	XMLAdapter xmlAdapter;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -49,9 +61,23 @@ public class SearchActivity extends Activity{
     private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
         	Log.d("text is ", name.getText().toString());
-        	String xml = SearchUtils.Search(getApplicationContext(), buildmap());
+        	Document xml = SearchUtils.Search(getApplicationContext(), buildmap());
+        	
+        	try {
+        		xmlAdapter = new XMLAdapter(xml, "id");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
         	Intent i = new Intent(getApplicationContext(), ListActivity.class);
-        	i.putExtra("xml", xml);
+        	i.putExtra("xml", xmlAdapter);
         	startActivity(i);
         }
     };
