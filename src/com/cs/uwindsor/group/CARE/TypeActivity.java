@@ -67,7 +67,7 @@ public class TypeActivity extends Activity{
 	    	}
 	    }
 
-	    public void onNothingSelected(AdapterView parent) {
+	    public void onNothingSelected(AdapterView<?> parent) {
 	      // Do nothing.
 	    }
 	}

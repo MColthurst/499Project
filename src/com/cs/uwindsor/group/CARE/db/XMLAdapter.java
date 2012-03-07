@@ -230,11 +230,10 @@ public class XMLAdapter implements DBAdapter<Element> {
      */
     public void commit() throws Exception {
         PrintWriter pw = new PrintWriter(new FileOutputStream(resourceName), true);
-        if( pw != null){
+        {
             pw.println(XMLHelper.xmlDocToString(dom));
             pw.close();
-        }else
-            throw new Exception("File Not Found");
+        }
     }
 
     /**

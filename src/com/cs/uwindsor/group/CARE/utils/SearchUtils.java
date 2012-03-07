@@ -1,19 +1,13 @@
 package com.cs.uwindsor.group.CARE.utils;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.cs.uwindsor.group.CARE.http.*;
+import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
+import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 
 
 public class SearchUtils {

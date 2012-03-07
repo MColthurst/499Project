@@ -8,11 +8,17 @@
 		<LinearLayout android:layout_height="fill_parent"
 			android:layout_width="fill_parent" android:id="@+id/linearLayout1"
 			android:orientation="vertical" android:layout_marginLeft="15dip" android:layout_marginRight="15dip">
-			<ListView android:id="@+id/movie_listview"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:layout_weight="1.0" android:textColor="#444444"
-				android:divider="@drawable/list_divider" android:dividerHeight="1px"
-				android:cacheColorHint="#00000000">
+
+			<ListView
+			    android:id="@+id/listview"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:layout_weight="1.0"
+			    android:cacheColorHint="#00000000"
+			    android:divider="@drawable/list_divider"
+			    android:dividerHeight="1px"
+			    android:textColor="#444444" >
+
 			</ListView>
 		</LinearLayout>
 	</RelativeLayout>
