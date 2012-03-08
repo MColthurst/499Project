@@ -47,6 +47,9 @@ public class SimpleAdapter extends BaseAdapter {
 		//Log.d("name" , data.get(position).getElementsByTagName("name").item(0).getTextContent());
 		text.setText(data.get(position).getElementsByTagName("name").item(0).getTextContent());
 
+		text = (TextView) vi.findViewById(R.id.seat_price);
+		text.setText("$" + data.get(position).getElementsByTagName("price").item(0).getTextContent());
+		
 		text = (TextView) vi.findViewById(R.id.seat_rating);
 		text.setText(String.valueOf("Rating: " + data.get(position).getElementsByTagName("rating").item(0).getTextContent()) + "/5");
 

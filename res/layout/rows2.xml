@@ -27,4 +27,14 @@
 	    android:textSize="16dip" >
 
 </TextView>
+
+	<TextView
+	    android:id="@+id/seat_price"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/seat_name"
+	    android:layout_below="@+id/seat_name"
+	    android:text="Medium Text"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>
