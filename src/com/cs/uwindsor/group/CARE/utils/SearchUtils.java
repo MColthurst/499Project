@@ -20,7 +20,7 @@ import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 
 
 public class SearchUtils {
-	private static final String baseURL = "http://care.cs.uwindsor.ca/?";
+	private static final String baseURL = "http://care.cs.uwindsor.ca/search.php?";
 	private static AsyncHttpClient client = new AsyncHttpClient();
 	static String xml = new String();
 
