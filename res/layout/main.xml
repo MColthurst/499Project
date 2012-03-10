@@ -3,21 +3,33 @@
     android:id="@+id/sButton"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/background_repeat"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/t_Button"
+    <ImageView
+        android:id="@+id/main_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/type_button" >
-</Button>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/care_logo" />
 
-    <Button
+    <ImageButton
         android:id="@+id/s_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/t_Button"
-        android:text="@string/searchButton" />
+        android:layout_below="@+id/main_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:src="@drawable/search_button" />
+
+    <ImageButton
+        android:id="@+id/t_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/s_Button"
+        android:layout_alignLeft="@+id/s_Button"
+        android:layout_marginBottom="104dp"
+        android:src="@drawable/type_button" />
 
 </RelativeLayout>

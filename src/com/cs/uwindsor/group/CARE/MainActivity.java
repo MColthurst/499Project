@@ -6,19 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
-	Button buttonT;
-	Button buttonS;
+	ImageButton buttonT;
+	ImageButton buttonS;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 	    
-        buttonT = (Button)findViewById(R.id.t_Button);
+        buttonT = (ImageButton)findViewById(R.id.t_Button);
         buttonT.setOnClickListener(tListener);            
-        buttonS = (Button)findViewById(R.id.s_Button);
+        buttonS = (ImageButton)findViewById(R.id.s_Button);
         buttonS.setOnClickListener(sListener);  
 	}
 	
