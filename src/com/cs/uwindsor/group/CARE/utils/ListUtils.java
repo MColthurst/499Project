@@ -21,4 +21,12 @@ public class ListUtils {
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		that.startActivity(intent);
 	}
+	
+	public static void sort(String s){
+		
+	}
+	
+	public static void order(String o){
+		
+	}
 }

@@ -5,9 +5,46 @@
 	<RelativeLayout android:layout_width="780dip"
 		android:id="@+id/windowLayout" android:layout_height="fill_parent"
 		android:layout_centerInParent="true" android:background="@color/opaque_black">
+
+		<TextView
+		    android:id="@+id/sort_text"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="22dp"
+		    android:layout_weight="1.0"
+		    android:text="Sort By: "
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textColor="@color/White" />
+
+		<Spinner
+		    android:id="@+id/sort_list"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBottom="@+id/sort_text"
+		    android:layout_toRightOf="@+id/sort_text"
+		    android:layout_weight="1.0" />
+
+		<TextView
+		    android:id="@+id/order_text"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="100dp"
+		    android:layout_toRightOf="@id/sort_list"
+		    android:text="Order: "
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textColor="@color/White" />
+
+		<Spinner
+		    android:id="@+id/order_list"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBottom="@+id/order_text"
+		    android:layout_toRightOf="@id/order_text"
+		    android:layout_weight="1.0" />
+
 		<LinearLayout android:layout_height="fill_parent"
 			android:layout_width="fill_parent" android:id="@+id/linearLayout1"
-			android:orientation="vertical" android:layout_marginLeft="15dip" android:layout_marginRight="15dip">
+			android:orientation="vertical" android:layout_marginTop="30dp" android:layout_marginLeft="15dip" android:layout_marginRight="15dip">
 
 			<ListView
 			    android:id="@+id/listview"
@@ -18,8 +55,10 @@
 			    android:divider="@drawable/list_divider"
 			    android:dividerHeight="1px"
 			    android:textColor="#444444" >
-
 			</ListView>
+
 		</LinearLayout>
+
 	</RelativeLayout>
+
 </RelativeLayout>
