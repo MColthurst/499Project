@@ -29,9 +29,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -42,6 +45,7 @@ import com.cs.uwindsor.group.CARE.TypeActivity.MyOnItemSelectedListener;
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
 import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.utils.ListUtils;
+import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class ListActivity extends Activity{
 	List<Element> records = new ArrayList<Element>();
@@ -50,22 +54,6 @@ public class ListActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.list); 
-	    
-	    //Set up menus for sorting
-	    Spinner sSpinner = (Spinner) findViewById(R.id.sort_list);
-	    ArrayAdapter<CharSequence> sAdapter = ArrayAdapter.createFromResource(
-	            this, R.array.sort_array, android.R.layout.simple_spinner_item);
-	    sAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    sSpinner.setAdapter(sAdapter);
-	
-	    Spinner oSpinner = (Spinner) findViewById(R.id.order_list);
-	    ArrayAdapter<CharSequence> oAdapter = ArrayAdapter.createFromResource(
-	            this, R.array.order_array, android.R.layout.simple_spinner_item);
-	    oAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    oSpinner.setAdapter(oAdapter);
-	    
-        sSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
-        oSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
 	    
         //Parse the XML document 
 	    String temp = getIntent().getStringExtra("xml");
@@ -81,7 +69,6 @@ public class ListActivity extends Activity{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    temp = null;
 	    
 	    Log.d("number of Records", String.valueOf(records.size()));
 	    Adapter a = new SimpleAdapter(this, records);
@@ -95,9 +82,8 @@ public class ListActivity extends Activity{
 				Log.d("clicked", records.get(arg2).getChildNodes().item(0).toString());
 				Element e = records.get(arg2);
 				ListUtils.viewDetails(getApplicationContext(), e);
-				// Cant be bothered using a real check condition
 			}
-		});
+		}); 
 	}
 
 	private XMLAdapter ParseXML(String xml) throws ParserConfigurationException, IOException, SAXException {
@@ -109,25 +95,6 @@ public class ListActivity extends Activity{
 		//Log.d("Doc Element", xmlDoc.getDocumentElement().getNodeName());
 		
 		return xmlAdapter;
-	}
-	
-	public class MyOnItemSelectedListener implements OnItemSelectedListener {
-
-	    public void onItemSelected(AdapterView<?> parent,
-	        View view, int pos, long id) {
-	    	if(parent.equals(findViewById(R.id.sort_list))){
-	    		ListUtils.sort(parent.getItemAtPosition(pos).toString());
-	    	}
-	    	else{
-	    		ListUtils.order(parent.getItemAtPosition(pos).toString());
-	    	}
-	    }
-
-		@Override
-		public void onNothingSelected(AdapterView<?> arg0) {
-			// TODO Auto-generated method stub
-			
-		}
 	}
 }
 

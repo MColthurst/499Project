@@ -36,6 +36,8 @@ public class SearchActivity extends Activity{
 	TextView name;
 	TextView price;
 	String rating = new String();
+	String sort = new String();
+	String order = new String();
 	String xml = new String();
 	XMLAdapter xmlAdapter;
 	
@@ -44,17 +46,31 @@ public class SearchActivity extends Activity{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);
 	    
-	    Spinner Spinner = (Spinner) findViewById(R.id.ratingMenu);
-	    ArrayAdapter<CharSequence> Adapter = ArrayAdapter.createFromResource(
+	    Spinner rSpinner = (Spinner) findViewById(R.id.ratingMenu);
+	    ArrayAdapter<CharSequence> rAdapter = ArrayAdapter.createFromResource(
 	            this, R.array.rating_array, android.R.layout.simple_spinner_item);
-	    Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    Spinner.setAdapter(Adapter);
+	    rAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    rSpinner.setAdapter(rAdapter);
+	    
+	    Spinner sSpinner = (Spinner) findViewById(R.id.sortList);
+	    ArrayAdapter<CharSequence> sAdapter = ArrayAdapter.createFromResource(
+	            this, R.array.sort_array, android.R.layout.simple_spinner_item);
+	    sAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    sSpinner.setAdapter(sAdapter);
+	    
+	    Spinner oSpinner = (Spinner) findViewById(R.id.orderList);
+	    ArrayAdapter<CharSequence> oAdapter = ArrayAdapter.createFromResource(
+	            this, R.array.order_array, android.R.layout.simple_spinner_item);
+	    oAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    oSpinner.setAdapter(oAdapter);
 	    
 	    name = (TextView)findViewById(R.id.nameText);
 	    id = (TextView)findViewById(R.id.idText);
 	    price = (TextView)findViewById(R.id.priceText);
 	    
-        Spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        rSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        sSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        oSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         
         button = (Button)findViewById(R.id.s_button);
         button.setOnClickListener(sListener);     
@@ -71,7 +87,15 @@ public class SearchActivity extends Activity{
 
     	    public void onItemSelected(AdapterView<?> parent,
     	        View view, int pos, long id) {
-    	    		rating = parent.getItemAtPosition(pos).toString();
+    	    		if(parent.equals(findViewById(R.id.sortList))){
+    	    			sort = parent.getItemAtPosition(pos).toString();
+    	    		}
+    	    		else if(parent.equals(findViewById(R.id.orderList))){
+    	    			order = parent.getItemAtPosition(pos).toString();
+    	    		}
+    	    		else{
+    	    			rating = parent.getItemAtPosition(pos).toString();
+    	    		}
     	    }
         
     	    @Override
@@ -86,6 +110,8 @@ public class SearchActivity extends Activity{
 		map.put("id", id.getText().toString());
 		map.put("price", price.getText().toString());
 		map.put("rating", rating);
+		map.put("sort", sort);
+		map.put("order", order);
 		return map;
 	}
 }

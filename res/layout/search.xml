@@ -11,14 +11,15 @@
         android:layout_alignParentLeft="true"
         android:text="Name: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <EditText
         android:id="@+id/nameText"
         android:layout_width="500px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/name">
-                <requestFocus />
+        android:layout_below="@+id/name" >
+
+        <requestFocus />
     </EditText>
 
     <TextView
@@ -27,15 +28,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/nameText"
-        android:text="Price: "
+        android:text="Max Price: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <EditText
         android:id="@+id/priceText"
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/price"/>
+        android:layout_below="@+id/price" />
 
     <TextView
         android:id="@+id/id"
@@ -51,22 +52,14 @@
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/id"/>
-
+        android:layout_below="@+id/id" />
+
     <Spinner
         android:id="@+id/ratingMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/rating" />
-
-    <Button
-        android:id="@+id/s_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ratingMenu"
-        android:text="@string/searchButton" />
 
     <TextView
         android:id="@+id/rating"
@@ -76,5 +69,47 @@
         android:layout_below="@+id/idText"
         android:text="Min Rating: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/s_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/searchButton" />
+
+    <TextView
+        android:id="@+id/sortText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ratingMenu"
+        android:text="Sort By: "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:id="@+id/sortList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sortText"
+        android:layout_toRightOf="@+id/sortText" />
+
+    <TextView
+        android:id="@+id/orderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sortList"
+        android:layout_alignBottom="@+id/sortList"
+        android:layout_toRightOf="@+id/sortList"
+        android:text="Order: "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:id="@+id/orderList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/orderText"
+        android:layout_alignBottom="@+id/orderText"
+        android:layout_toRightOf="@+id/orderText" />
 
 </RelativeLayout>

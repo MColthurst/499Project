@@ -32,7 +32,7 @@ public class SearchUtils {
 		final Context that = (Context)context;
 		
 		url = buildurl(map);
-		Log.d("url ", url);
+		Log.d("url: ", url);
 
 		client.get(url, new AsyncHttpResponseHandler(){
 			
@@ -43,42 +43,6 @@ public class SearchUtils {
 				
 	        	Intent i = new Intent(that, ListActivity.class);
 	        	i.putExtra("xml", xml);
-	        	i.putExtra("url", url);
-	        	i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	        	that.startActivity(i);
-			}
-
-			@Override
-			public void onFailure (Throwable t) {
-
-				Toast toast = Toast.makeText(that, "Internet not connected... Please connect and try again.",
-						Toast.LENGTH_LONG);
-				toast.show();
-			}
-
-			@Override
-			public void onFinish () {
-				
-			}
-		});
-	}
-	
-	public static void Search(Context context, Activity a , String url){
-		
-		final Context that = (Context)context;
-		
-		Log.d("url ", url);
-
-		client.get(url, new AsyncHttpResponseHandler(){
-			
-			@Override
-			public void onSuccess (String response) {
-				Log.d("xml ", response);
-				xml = response;
-				
-	        	Intent i = new Intent(that, ListActivity.class);
-	        	i.putExtra("xml", xml);
-	        	//i.putExtra("url", url);
 	        	i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	        	that.startActivity(i);
 			}
