@@ -31,7 +31,7 @@ public class SearchUtils {
 		
 		final Context that = (Context)context;
 		
-		url = buildurl(map);
+		url = URLbuilder.buildurl(map, baseURL);
 		Log.d("url: ", url);
 
 		client.get(url, new AsyncHttpResponseHandler(){
@@ -60,19 +60,5 @@ public class SearchUtils {
 				
 			}
 		});
-	}
-
-
-	private static String buildurl(Map<String, String> map) {
-		String url = baseURL;
-		for (String key : map.keySet()) {
-			if(map.get(key) != null){
-				url = url.concat(key + "=");
-				String temp = map.get(key);
-				temp = temp.replaceAll("\\s", "+");
-				url = url.concat(temp + "&");
-			}
-		}
-		return url;
 	}
 }

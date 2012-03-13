@@ -2,41 +2,91 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_centerInParent="true" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@drawable/background_repeat">
-	<RelativeLayout android:layout_width="780dip"
-		android:id="@+id/windowLayout" android:layout_height="fill_parent"
-		android:layout_centerInParent="true" android:background="@color/opaque_black"
-		android:padding="15dip">
-		<ImageView android:src="@drawable/temp" android:id="@+id/picture"
-			android:layout_width="185dip" android:layout_height="278dip"
-			android:scaleType="fitXY" android:layout_alignParentTop="true"
-			android:layout_alignParentLeft="true" android:layout_marginBottom="10dip" android:layout_alignRight="@+id/ratingBar1"></ImageView>
-		<TextView android:textAppearance="?android:attr/textAppearanceMedium"
-			android:text="@string/details" android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:id="@+id/details"
-			android:layout_below="@+id/type" android:layout_alignLeft="@+id/type"
-			android:layout_marginTop="29dp"></TextView>
-		<TextView android:textAppearance="?android:attr/textAppearanceMedium"
-			android:text="@string/price" android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:id="@+id/price"
-			android:layout_below="@+id/details" android:layout_alignLeft="@+id/details"
-			android:layout_marginTop="37dp"></TextView>
-		<LinearLayout android:layout_height="wrap_content"
-			android:id="@+id/button_layout" android:orientation="vertical"
-			android:layout_width="wrap_content" android:layout_below="@+id/poster"
-			android:layout_alignParentLeft="true">
-		</LinearLayout>
-		<RatingBar android:id="@+id/ratingBar1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/picture" android:layout_alignLeft="@+id/button_layout"></RatingBar>
-		<TextView android:layout_height="wrap_content" android:textSize="30dip" android:id="@+id/name" android:text="@string/name" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_alignTop="@+id/picture" android:layout_toRightOf="@+id/picture" android:layout_marginLeft="22dp"></TextView>
-		<TextView android:layout_height="wrap_content" android:id="@+id/type" android:text="@string/type" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_below="@+id/name" android:layout_alignLeft="@+id/name"></TextView>
+
+	<RelativeLayout
+	    android:id="@+id/windowLayout"
+	    android:layout_width="780dip"
+	    android:layout_height="fill_parent"
+	    android:layout_centerInParent="true"
+	    android:background="@color/opaque_black"
+	    android:padding="15dip" >
 
-		<Button
-		    android:id="@+id/buy_carseat"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignLeft="@+id/ratingBar1"
-		    android:layout_below="@+id/ratingBar1"
-		    android:onClick="buyCarseat"
-		    android:text="Buy" />
+	    <ImageView
+	        android:id="@+id/picture"
+	        android:layout_width="185dip"
+	        android:layout_height="278dip"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignRight="@+id/ratingBar1"
+	        android:layout_marginBottom="10dip"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/temp" >
+	    </ImageView>
 
+	    <LinearLayout
+	        android:id="@+id/button_layout"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/poster"
+	        android:orientation="vertical" >
+	    </LinearLayout>
+
+	    <RatingBar
+	        android:id="@+id/ratingBar1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/button_layout"
+	        android:layout_below="@+id/picture" >
+	    </RatingBar>
+
+	    <TextView
+	        android:id="@+id/name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/picture"
+	        android:layout_marginLeft="22dp"
+	        android:layout_toRightOf="@+id/picture"
+	        android:text="@string/name"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textSize="30dip" >
+	    </TextView>
+
+	    <TextView
+	        android:id="@+id/type"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/name"
+	        android:layout_below="@+id/name"
+	        android:text="@string/type"
+	        android:textAppearance="?android:attr/textAppearanceLarge" >
+	    </TextView>
+
+	    <Button
+	        android:id="@+id/rate_carseat"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/ratingBar1"
+	        android:layout_below="@+id/ratingBar1"
+	        android:text="Rate/Review" />
+
+	    <TextView
+	        android:id="@+id/desc"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/type"
+	        android:layout_marginTop="100dp"
+	        android:text="@string/details"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	    <TextView
+	        android:id="@+id/price"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/type"
+	        android:layout_below="@+id/type"
+	        android:text="@string/price"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	</RelativeLayout>
+
 </RelativeLayout>

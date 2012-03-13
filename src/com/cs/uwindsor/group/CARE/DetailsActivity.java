@@ -1,16 +1,21 @@
 package com.cs.uwindsor.group.CARE;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class DetailsActivity extends Activity{
 	TextView name;
 	TextView price;
+	TextView desc;
 	TextView type;
 	RatingBar rating;
+	Button rate;
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -18,11 +23,14 @@ public class DetailsActivity extends Activity{
 	    
 	    name = (TextView) findViewById(R.id.name);
 	    price = (TextView) findViewById(R.id.price);
+	    desc = (TextView) findViewById(R.id.desc);
 	    type = (TextView) findViewById(R.id.type);
 	    rating = (RatingBar) findViewById(R.id.ratingBar1);
+	    rate = (Button) findViewById(R.id.rate_carseat);
 	    
 	    name.setText(getIntent().getStringExtra("name"));
 	    price.setText("$" + getIntent().getStringExtra("price"));
+	    desc.setText(getIntent().getStringExtra("desc"));
 	    
 	    switch (Integer.parseInt(getIntent().getStringExtra("type"))){
 	    case 1: type.setText("Rear Facing Carseat");
@@ -36,7 +44,16 @@ public class DetailsActivity extends Activity{
 	    
 	    rating.setIsIndicator(true);
 	    rating.setRating(Float.parseFloat(getIntent().getStringExtra("rating")));
+	    
+	    rate.setOnClickListener(sListener); 
 	}
 	
-	public void buyCarseat(View v){}
+	private OnClickListener sListener = new OnClickListener() {
+        public void onClick(View v) {
+    		Intent i = new Intent(getApplicationContext(), RatingActivity.class);
+    		i.putExtra("id", getIntent().getStringExtra("id"));
+    		i.putExtra("name", getIntent().getStringExtra("name"));	
+    		startActivity(i);
+        }
+	};
 }
