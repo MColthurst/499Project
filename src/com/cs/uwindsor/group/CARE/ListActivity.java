@@ -81,7 +81,8 @@ public class ListActivity extends Activity{
 
 				Log.d("clicked", records.get(arg2).getChildNodes().item(0).toString());
 				Element e = records.get(arg2);
-				ListUtils.viewDetails(getApplicationContext(), e);
+				Log.d("ID: ", e.getChildNodes().item(1).getTextContent());
+				ListUtils.viewDetails(getApplicationContext(), e.getChildNodes().item(1).getTextContent());
 			}
 		}); 
 	}
