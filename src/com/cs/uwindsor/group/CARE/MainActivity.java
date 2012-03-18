@@ -9,17 +9,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
-	ImageButton buttonT;
-	ImageButton buttonS;
+	Button buttonT;
+	Button buttonS;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 	    
-        buttonT = (ImageButton)findViewById(R.id.t_Button);
+        buttonT = (Button)findViewById(R.id.t_Button);
         buttonT.setOnClickListener(tListener);            
-        buttonS = (ImageButton)findViewById(R.id.s_Button);
+        buttonS = (Button)findViewById(R.id.s_Button);
         buttonS.setOnClickListener(sListener);  
 	}
 	

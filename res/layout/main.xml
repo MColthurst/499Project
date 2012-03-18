@@ -13,23 +13,28 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/care_logo" />
-
-    <ImageButton
-        android:id="@+id/s_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:src="@drawable/search_button" />
-
-    <ImageButton
+    
+    <Button
         android:id="@+id/t_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/s_Button"
-        android:layout_alignLeft="@+id/s_Button"
-        android:layout_marginBottom="104dp"
-        android:src="@drawable/type_button" />
+        android:layout_below="@id/main_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp"
+        android:text="What type of car seat do I need?"
+        android:textColor="#000000"
+        android:background="@drawable/large_button_bg" />
+
+    <Button
+        android:id="@+id/s_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/t_Button"
+        android:text="Search for a car seat"
+        android:textColor="#000000"
+        android:background="@drawable/large_button_bg" />
+
+
 
 </RelativeLayout>

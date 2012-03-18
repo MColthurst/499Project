@@ -1,20 +1,9 @@
 package com.cs.uwindsor.group.CARE;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.concurrent.locks.Lock;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +16,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
-import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class SearchActivity extends Activity{
@@ -59,9 +47,13 @@ public class SearchActivity extends Activity{
 	    sSpinner.setAdapter(sAdapter);
 	    
 	    Spinner oSpinner = (Spinner) findViewById(R.id.orderList);
+	    String [] spin_arry = getResources().getStringArray(R.array.order_array);    
+	    CustomSpinnerAdapter<CharSequence> oAdapter = new CustomSpinnerAdapter<CharSequence>(this, spin_arry);
+	    /*
 	    ArrayAdapter<CharSequence> oAdapter = ArrayAdapter.createFromResource(
 	            this, R.array.order_array, android.R.layout.simple_spinner_item);
 	    oAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    */
 	    oSpinner.setAdapter(oAdapter);
 	    
 	    name = (TextView)findViewById(R.id.nameText);

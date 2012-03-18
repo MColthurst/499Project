@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top" >
+    android:gravity="top"
+    android:background="@drawable/background_repeat" >
 
     <TextView
         android:id="@+id/name"
@@ -59,7 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/rating" />
+        android:layout_below="@+id/rating" 
+        android:background="@drawable/spinner_bg"/>
 
     <TextView
         android:id="@+id/rating"
@@ -69,14 +71,6 @@
         android:layout_below="@+id/idText"
         android:text="Min Rating: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/s_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:text="@string/searchButton" />
 
     <TextView
         android:id="@+id/sortText"
@@ -92,7 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/sortText"
-        android:layout_toRightOf="@+id/sortText" />
+        android:layout_toRightOf="@+id/sortText" 
+        android:background="@drawable/spinner_bg"/>
 
     <TextView
         android:id="@+id/orderText"
@@ -110,6 +105,15 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/orderText"
         android:layout_alignBottom="@+id/orderText"
-        android:layout_toRightOf="@+id/orderText" />
+        android:layout_toRightOf="@+id/orderText" 
+        android:background="@drawable/spinner_bg"/>
 
+    <Button
+        android:id="@+id/s_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/searchButton" 
+        android:background="@drawable/small_button_bg"/>
 </RelativeLayout>

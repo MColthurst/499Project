@@ -3,30 +3,36 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/background_repeat"
     >
 
     <Spinner
         android:id="@+id/Height"
         android:layout_width="200px"
         android:layout_height="wrap_content"
-        android:prompt="@string/Height" />
+        android:prompt="@string/Height" 
+        android:background="@drawable/spinner_bg"/>
 
     <Spinner
         android:id="@+id/Weight"
         android:layout_width="200px"
         android:layout_height="wrap_content"
-        android:prompt="@string/Weight" />
+        android:prompt="@string/Weight" 
+        android:background="@drawable/spinner_bg"/>
 
     <Spinner
         android:id="@+id/Age"
         android:layout_width="200px"
         android:layout_height="wrap_content"
-        android:prompt="@string/Age" />
+        android:prompt="@string/Age" 
+        android:background="@drawable/spinner_bg"/>
 
     <Button
         android:id="@+id/wButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/w_button" >
+        android:text="Submit" 
+        android:textColor="#000000"
+        android:background="@drawable/small_button_bg">
 </Button>
 </LinearLayout>

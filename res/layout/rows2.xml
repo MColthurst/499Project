@@ -11,8 +11,9 @@
 	    android:layout_marginLeft="15dip"
 	    android:layout_marginTop="5dip"
 	    android:lines="1"
-	    android:text="A Long Movie Title"
+	    android:text="Carseat Name"
 	    android:textAppearance="?android:attr/textAppearanceLarge"
+	    android:textColor="#000000"
 	    android:textSize="30dip" >
 
 </TextView>
@@ -22,8 +23,9 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentRight="true"
-	    android:text="Rating: 9.8/10"
+	    android:text="Rating: 3.7/5"
 	    android:textAppearance="?android:attr/textAppearanceLarge"
+	    android:textColor="#505050"
 	    android:textSize="16dip" >
 
 </TextView>
@@ -34,7 +36,8 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignLeft="@+id/seat_name"
 	    android:layout_below="@+id/seat_name"
-	    android:text="Medium Text"
+	    android:text="Price"
+	    android:textColor="#505050"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

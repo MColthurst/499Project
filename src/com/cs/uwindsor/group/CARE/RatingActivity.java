@@ -28,6 +28,7 @@ public class RatingActivity extends Activity{
 	EditText comment;
 	RatingBar rating;
 	Button submit;
+	DetailsActivity a = new DetailsActivity();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class RatingActivity extends Activity{
 		submit = (Button) findViewById(R.id.rateButton);
 		
 		main.setText("Please Rate and Review the " + getIntent().getStringExtra("name"));
+		
+		a = (DetailsActivity) getParent();
 		
         submit.setOnClickListener(sListener); 
         
@@ -65,6 +68,7 @@ public class RatingActivity extends Activity{
     			
     			@Override
     			public void onSuccess (String response) {
+    				//a.name.setText("Changed");
     				Log.d("response: ", response);
     			}
 
