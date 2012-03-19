@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:text="Name: "
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -113,7 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/orderText"
+        android:layout_marginTop="10dp"
         android:text="@string/searchButton" 
         android:background="@drawable/small_button_bg"/>
 </RelativeLayout>

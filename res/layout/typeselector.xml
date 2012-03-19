@@ -1,38 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_repeat"
     >
 
+    <TextView
+        android:id="@+id/typeText"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:text="Enter your childs Age, Height and Weight to find car seats for them based on Ontario traffic laws"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/ageText"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/typeText"
+        android:layout_below="@id/typeText"
+        android:textColor="#000000"
+        android:text="Age: "
+        android:textSize="18pt"/>
+    
+     <Spinner
+        android:id="@+id/Age"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ageText"
+        android:layout_alignBaseline="@id/ageText"
+        android:prompt="@string/Age" 
+        android:background="@drawable/spinner_bg"/>
+    
+     <TextView
+        android:id="@+id/heightText"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/typeText"
+        android:layout_below="@id/ageText"
+        android:textColor="#000000"
+        android:text="Height: "
+        android:textSize="18pt"/>
+     
     <Spinner
         android:id="@+id/Height"
         android:layout_width="200px"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/heightText"
+        android:layout_alignBaseline="@id/heightText"
         android:prompt="@string/Height" 
         android:background="@drawable/spinner_bg"/>
 
+     <TextView
+        android:id="@+id/weightText"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/typeText"
+        android:layout_below="@id/heightText"
+        android:textColor="#000000"
+        android:text="Weight: "
+        android:textSize="18pt"/>
+    
     <Spinner
         android:id="@+id/Weight"
         android:layout_width="200px"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/weightText"
+        android:layout_alignBaseline="@id/weightText"
         android:prompt="@string/Weight" 
-        android:background="@drawable/spinner_bg"/>
-
-    <Spinner
-        android:id="@+id/Age"
-        android:layout_width="200px"
-        android:layout_height="wrap_content"
-        android:prompt="@string/Age" 
         android:background="@drawable/spinner_bg"/>
 
     <Button
         android:id="@+id/wButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" 
-        android:textColor="#000000"
-        android:background="@drawable/small_button_bg">
-</Button>
-</LinearLayout>
+        android:layout_below="@+id/weightText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/small_button_bg"
+        android:text="Submit"
+        android:textColor="#000000" />
+
+</RelativeLayout>

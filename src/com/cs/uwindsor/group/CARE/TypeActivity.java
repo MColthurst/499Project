@@ -1,5 +1,10 @@
 package com.cs.uwindsor.group.CARE;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.cs.uwindsor.group.CARE.utils.SearchUtils;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,6 +79,7 @@ public class TypeActivity extends Activity{
 	
     private OnClickListener tListener = new OnClickListener() {
         public void onClick(View v) {
+        	Map<String, String> map = new HashMap<String, String>();
         	int hValue;
         	int wValue;
         	int aValue;
@@ -98,12 +104,18 @@ public class TypeActivity extends Activity{
         		else if(Age.contains(">")) aValue = 1000;
         		else aValue = Integer.parseInt(Age);
         	
-        		if(wValue < 20)
-        			Toast.makeText(getApplicationContext(), "Your Child Needs to be in a rear facing car seat", Toast.LENGTH_LONG).show();
-        		else if(wValue >= 20 && wValue < 40)
-        			Toast.makeText(getApplicationContext(), "Your Child Needs to be in a front facing car seat", Toast.LENGTH_LONG).show();
-        		else if(wValue < 80 || hValue < 145 || aValue <8)
-        			Toast.makeText(getApplicationContext(), "Your Child Needs to be in a Booster seat", Toast.LENGTH_LONG).show();
+        		if(wValue < 20){
+        			map.put("type", "1");
+        			SearchUtils.Search(getApplicationContext(), map);}
+        			//Toast.makeText(getApplicationContext(), "Your Child Needs to be in a rear facing car seat", Toast.LENGTH_LONG).show();
+        		else if(wValue >= 20 && wValue < 40){
+        			map.put("type", "2");
+    				SearchUtils.Search(getApplicationContext(), map);}
+        			//Toast.makeText(getApplicationContext(), "Your Child Needs to be in a front facing car seat", Toast.LENGTH_LONG).show();
+        		else if(wValue < 80 || hValue < 145 || aValue <8){
+        			map.put("type", "3");
+    				SearchUtils.Search(getApplicationContext(), map);}
+        			//Toast.makeText(getApplicationContext(), "Your Child Needs to be in a Booster seat", Toast.LENGTH_LONG).show();
         		else
         			Toast.makeText(getApplicationContext(), "Your Child does not need a car seat", Toast.LENGTH_LONG).show();
 
