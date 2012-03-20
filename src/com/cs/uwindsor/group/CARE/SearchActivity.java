@@ -80,10 +80,26 @@ public class SearchActivity extends Activity{
     	    public void onItemSelected(AdapterView<?> parent,
     	        View view, int pos, long id) {
     	    		if(parent.equals(findViewById(R.id.sortList))){
-    	    			sort = parent.getItemAtPosition(pos).toString();
+    	    			switch(pos){
+    	    			case 0: sort = "name";
+    	    			break;
+    	    			case 1: sort = "price";
+    	    			break;
+    	    			case 2: sort = "rating";
+    	    			break;
+    	    			default: sort = "name";
+    	    			}
+    	    			//sort = parent.getItemAtPosition(pos).toString();
     	    		}
     	    		else if(parent.equals(findViewById(R.id.orderList))){
-    	    			order = parent.getItemAtPosition(pos).toString();
+       	    			switch(pos){
+    	    			case 0: order = "asc";
+    	    			break;
+    	    			case 1: order = "desc";
+    	    			break;
+    	    			default: order = "asc";
+       	    			}
+    	    			//order = parent.getItemAtPosition(pos).toString();
     	    		}
     	    		else{
     	    			rating = parent.getItemAtPosition(pos).toString();
