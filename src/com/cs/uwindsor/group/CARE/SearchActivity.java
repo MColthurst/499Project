@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,12 +22,14 @@ import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class SearchActivity extends Activity{
 	Button button;
+	RadioGroup type;
 	TextView id;
 	TextView name;
 	TextView price;
 	String rating = new String();
 	String sort = new String();
 	String order = new String();
+	String make = new String();
 	String xml = new String();
 	XMLAdapter xmlAdapter;
 	
@@ -33,6 +37,12 @@ public class SearchActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);
+	    
+	    Spinner bSpinner = (Spinner) findViewById(R.id.brandMenu);
+	    ArrayAdapter<CharSequence> bAdapter = ArrayAdapter.createFromResource(
+	            this, R.array.brand_array, android.R.layout.simple_spinner_item);
+	    bAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    bSpinner.setAdapter(bAdapter);
 	    
 	    Spinner rSpinner = (Spinner) findViewById(R.id.ratingMenu);
 	    ArrayAdapter<CharSequence> rAdapter = ArrayAdapter.createFromResource(
@@ -47,19 +57,17 @@ public class SearchActivity extends Activity{
 	    sSpinner.setAdapter(sAdapter);
 	    
 	    Spinner oSpinner = (Spinner) findViewById(R.id.orderList);
-	    String [] spin_arry = getResources().getStringArray(R.array.order_array);    
-	    CustomSpinnerAdapter<CharSequence> oAdapter = new CustomSpinnerAdapter<CharSequence>(this, spin_arry);
-	    /*
 	    ArrayAdapter<CharSequence> oAdapter = ArrayAdapter.createFromResource(
 	            this, R.array.order_array, android.R.layout.simple_spinner_item);
 	    oAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    */
 	    oSpinner.setAdapter(oAdapter);
 	    
+	    type = (RadioGroup)findViewById(R.id.typeSelection);
+	    
 	    name = (TextView)findViewById(R.id.nameText);
-	    //id = (TextView)findViewById(R.id.idText);
 	    price = (TextView)findViewById(R.id.priceText);
 	    
+	    bSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         rSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         sSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         oSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
@@ -101,8 +109,11 @@ public class SearchActivity extends Activity{
        	    			}
     	    			//order = parent.getItemAtPosition(pos).toString();
     	    		}
-    	    		else{
+    	    		else if(parent.equals(findViewById(R.id.ratingMenu))){
     	    			rating = parent.getItemAtPosition(pos).toString();
+    	    		}
+    	    		else{
+    	    			make = parent.getItemAtPosition(pos).toString();
     	    		}
     	    }
         
@@ -115,11 +126,25 @@ public class SearchActivity extends Activity{
 	private Map<String, String> buildmap() {
     	Map<String, String> map = new TreeMap<String, String>();
 		map.put("name", name.getText().toString());
-		//map.put("id", id.getText().toString());
+		//map.put("make", make);
 		map.put("price", price.getText().toString());
+		map.put("type", getType());
 		map.put("rating", rating);
 		map.put("sort", sort);
 		map.put("order", order);
 		return map;
+	}
+
+	private String getType() {
+		final int B0 = R.id.radio0;
+		final int B1 = R.id.radio1; 
+		final int B2 = R.id.radio2;
+		int id = type.getCheckedRadioButtonId();
+		switch (id){
+		case B0: return "1";
+		case B1: return "2";
+		case B2: return "3";
+		default: return "";
+		}
 	}
 }

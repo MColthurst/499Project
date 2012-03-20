@@ -90,4 +90,8 @@
         <item >Price</item>
         <item >User Rating</item>
     </string-array>
+    <string-array name="brand_array">
+        <item >Any</item>
+        <item >Clek</item>
+    </string-array>
 </resources>

@@ -19,6 +19,7 @@
         android:id="@+id/nameText"
         android:layout_width="500px"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/name"
         android:layout_centerHorizontal="true" >
 
         <requestFocus />
@@ -28,8 +29,9 @@
         android:id="@+id/brand"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nameText"
+        android:layout_below="@+id/name"
         android:layout_toLeftOf="@+id/brandMenu"
+        android:layout_marginRight="10dp"
         android:text="Brand: "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
@@ -60,6 +62,7 @@
         android:layout_width="200px"
         android:layout_height="wrap_content"
         android:layout_below="@id/brandMenu"
+        android:layout_alignBaseline="@id/price"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp" />
 
@@ -68,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/price"
-        android:layout_toLeftOf="@id/ratingMenu"
+        android:layout_toLeftOf="@+id/ratingMenu"
         android:text="Min Rating: "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
@@ -88,14 +91,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rating"
-        android:layout_toLeftOf="@id/radioGroup1"
+        android:layout_toLeftOf="@+id/typeSelection"
         android:text="Seat Type: "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textSize="18pt" />
 
     <RadioGroup
-        android:id="@+id/radioGroup1"
+        android:id="@+id/typeSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rating"
@@ -105,7 +108,6 @@
             android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="Rear Facing Seat"
             android:textColor="#000000" />
 
@@ -124,22 +126,12 @@
             android:textColor="#000000" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/s_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/orderText"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/small_button_bg"
-        android:text="@string/searchButton" />
-
     <TextView
         android:id="@+id/sortText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/price"
-        android:layout_below="@+id/radioGroup1"
+        android:layout_below="@+id/typeSelection"
         android:layout_marginRight="15dp"
         android:text="Sort By: "
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -173,4 +165,15 @@
         android:layout_alignBottom="@+id/orderText"
         android:background="@drawable/spinner_bg" />
 
+    <Button
+        android:id="@+id/s_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/orderText"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/small_button_bg"
+        android:text="@string/searchButton" 
+        android:textColor="#000000"/>
+    
 </RelativeLayout>
