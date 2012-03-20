@@ -57,7 +57,7 @@ public class SearchActivity extends Activity{
 	    oSpinner.setAdapter(oAdapter);
 	    
 	    name = (TextView)findViewById(R.id.nameText);
-	    id = (TextView)findViewById(R.id.idText);
+	    //id = (TextView)findViewById(R.id.idText);
 	    price = (TextView)findViewById(R.id.priceText);
 	    
         rSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
@@ -115,7 +115,7 @@ public class SearchActivity extends Activity{
 	private Map<String, String> buildmap() {
     	Map<String, String> map = new TreeMap<String, String>();
 		map.put("name", name.getText().toString());
-		map.put("id", id.getText().toString());
+		//map.put("id", id.getText().toString());
 		map.put("price", price.getText().toString());
 		map.put("rating", rating);
 		map.put("sort", sort);

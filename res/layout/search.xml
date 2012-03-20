@@ -2,120 +2,175 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
-    android:background="@drawable/background_repeat" >
+    android:background="@drawable/background_repeat"
+    android:gravity="top" >
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/nameText"
         android:text="Name: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="18pt" />
 
     <EditText
         android:id="@+id/nameText"
         android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/name" >
+        android:layout_centerHorizontal="true" >
 
         <requestFocus />
     </EditText>
 
     <TextView
+        android:id="@+id/brand"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameText"
+        android:layout_toLeftOf="@+id/brandMenu"
+        android:text="Brand: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="18pt" />
+
+    <Spinner
+        android:id="@+id/brandMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/brand"
+        android:layout_below="@+id/nameText"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_bg" />
+
+    <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/nameText"
+        android:layout_below="@id/brand"
+        android:layout_toLeftOf="@+id/priceText"
         android:text="Max Price: "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="18pt" />
 
     <EditText
         android:id="@+id/priceText"
         android:layout_width="200px"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/price" />
-
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/priceText"
-        android:text="ID: "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/idText"
-        android:layout_width="200px"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/id" />
-
-    <Spinner
-        android:id="@+id/ratingMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/rating" 
-        android:background="@drawable/spinner_bg"/>
+        android:layout_below="@id/brandMenu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/idText"
+        android:layout_below="@+id/price"
+        android:layout_toLeftOf="@id/ratingMenu"
         android:text="Min Rating: "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="18pt" />
+
+    <Spinner
+        android:id="@+id/ratingMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/rating"
+        android:layout_below="@+id/priceText"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner_bg" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating"
+        android:layout_toLeftOf="@id/radioGroup1"
+        android:text="Seat Type: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="18pt" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rating"
+        android:layout_centerHorizontal="true" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Rear Facing Seat"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Front Facing Seat"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booster Seat"
+            android:textColor="#000000" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/s_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/orderText"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/small_button_bg"
+        android:text="@string/searchButton" />
 
     <TextView
         android:id="@+id/sortText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ratingMenu"
+        android:layout_alignRight="@+id/price"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_marginRight="15dp"
         android:text="Sort By: "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
 
     <Spinner
         android:id="@+id/sortList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/sortText"
-        android:layout_toRightOf="@+id/sortText" 
-        android:background="@drawable/spinner_bg"/>
+        android:layout_toRightOf="@+id/sortText"
+        android:background="@drawable/spinner_bg" />
 
     <TextView
         android:id="@+id/orderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sortList"
-        android:layout_alignBottom="@+id/sortList"
         android:layout_toRightOf="@+id/sortList"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignBottom="@+id/sortText"
         android:text="Order: "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
 
     <Spinner
         android:id="@+id/orderList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/orderText"
+        android:layout_toRightOf="@+id/orderText"
         android:layout_alignBottom="@+id/orderText"
-        android:layout_toRightOf="@+id/orderText" 
-        android:background="@drawable/spinner_bg"/>
+        android:background="@drawable/spinner_bg" />
 
-    <Button
-        android:id="@+id/s_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/orderText"
-        android:layout_marginTop="10dp"
-        android:text="@string/searchButton" 
-        android:background="@drawable/small_button_bg"/>
 </RelativeLayout>
