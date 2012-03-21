@@ -1,5 +1,7 @@
 package com.cs.uwindsor.group.CARE;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
+import com.cs.uwindsor.group.CARE.utils.BrandList;
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class SearchActivity extends Activity{
@@ -38,12 +41,15 @@ public class SearchActivity extends Activity{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);
 	    
-	    Spinner bSpinner = (Spinner) findViewById(R.id.brandMenu);
-	    ArrayAdapter<CharSequence> bAdapter = ArrayAdapter.createFromResource(
-	            this, R.array.brand_array, android.R.layout.simple_spinner_item);
-	    bAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    bSpinner.setAdapter(bAdapter);
+	    ArrayList<CharSequence> list = getIntent().getCharSequenceArrayListExtra("makelist");
 	    
+	    Spinner bSpinner = (Spinner) findViewById(R.id.brandMenu);
+	    ArrayAdapter bAdapter = new ArrayAdapter(
+	            this, android.R.layout.simple_spinner_item, list);
+	    bSpinner.setAdapter(bAdapter);
+	   
+	    Log.d("makeAct", String.valueOf(list.size()));
+
 	    Spinner rSpinner = (Spinner) findViewById(R.id.ratingMenu);
 	    ArrayAdapter<CharSequence> rAdapter = ArrayAdapter.createFromResource(
 	            this, R.array.rating_array, android.R.layout.simple_spinner_item);
@@ -113,7 +119,10 @@ public class SearchActivity extends Activity{
     	    			rating = parent.getItemAtPosition(pos).toString();
     	    		}
     	    		else{
-    	    			make = parent.getItemAtPosition(pos).toString();
+    	    			if(pos == 0)
+    	    				make = "any";
+    	    			else
+    	    				make = parent.getItemAtPosition(pos).toString();
     	    		}
     	    }
         
@@ -126,7 +135,7 @@ public class SearchActivity extends Activity{
 	private Map<String, String> buildmap() {
     	Map<String, String> map = new TreeMap<String, String>();
 		map.put("name", name.getText().toString());
-		//map.put("make", make);
+		map.put("make", make);
 		map.put("price", price.getText().toString());
 		map.put("type", getType());
 		map.put("rating", rating);

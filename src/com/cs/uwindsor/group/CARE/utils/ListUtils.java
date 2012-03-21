@@ -68,8 +68,6 @@ public class ListUtils {
 			@Override
 			public void onFinish () {
 				Intent intent = new Intent(that, DetailsActivity.class);
-				//Element e = elementL.;
-				//NodeList ns = (NodeList) elementL;
 				for(int i=0; i<elementL.size(); i++) {
 					Log.d("Nodename" , elementL.get(i).getNodeName() + " -- " + elementL.get(i).getTextContent());
 					intent.putExtra(elementL.get(i).getNodeName(), elementL.get(i).getTextContent());

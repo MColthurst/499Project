@@ -8,6 +8,7 @@ import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 import com.cs.uwindsor.group.CARE.utils.URLbuilder;
 
 import android.app.Activity;
+import android.app.Instrumentation.ActivityResult;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,8 @@ import android.widget.Toast;
 public class RatingActivity extends Activity{
 	private static final String baseURL = "http://care.cs.uwindsor.ca/rate.php?";
 	private static AsyncHttpClient client = new AsyncHttpClient();
+	Intent i = new Intent();
+	String[] review = new String[3];
 	TextView main;
 	EditText name;
 	EditText comment;
@@ -43,8 +46,6 @@ public class RatingActivity extends Activity{
 		
 		main.setText("Please Rate and Review the " + getIntent().getStringExtra("name"));
 		
-		a = (DetailsActivity) getParent();
-		
         submit.setOnClickListener(sListener); 
         
 	}
@@ -55,12 +56,18 @@ public class RatingActivity extends Activity{
         	
         	map.put("id", getIntent().getStringExtra("id"));
         	map.put("rating", Float.toString(rating.getRating()));
+        	review[0] = Float.toString(rating.getRating());
         	
-        	if(name.getText().toString() != null)
+        	
+        	if(name.getText().toString() != null){
         		map.put("name", name.getText().toString());
+        		review[1] = name.getText().toString();
+        	}
         	
-        	if(comment.getText().toString() != null)
+        	if(comment.getText().toString() != null){
         		map.put("comment", comment.getText().toString());
+        		review[2] = comment.getText().toString();
+        	}
         	
         	String url = URLbuilder.buildurl(map, baseURL);
         	
@@ -68,7 +75,8 @@ public class RatingActivity extends Activity{
     			
     			@Override
     			public void onSuccess (String response) {
-    				//a.name.setText("Changed");
+    				i.putExtra("name", review);
+    				setResult(RESULT_OK, i);
     				Log.d("response: ", response);
     			}
 

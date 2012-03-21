@@ -1,8 +1,11 @@
 package com.cs.uwindsor.group.CARE;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -10,6 +13,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class DetailsActivity extends Activity{
+	Activity a = new Activity();
+	
 	TextView name;
 	TextView price;
 	TextView desc;
@@ -20,6 +25,8 @@ public class DetailsActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.details);
+	    
+	    a = this;
 	    
 	    name = (TextView) findViewById(R.id.name);
 	    price = (TextView) findViewById(R.id.price);
@@ -46,14 +53,24 @@ public class DetailsActivity extends Activity{
 	    rating.setRating(Float.parseFloat(getIntent().getStringExtra("rating")));
 	    
 	    rate.setOnClickListener(sListener); 
+		
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		a.getIntent().putExtra("newReview", data.getStringArrayExtra("review"));
+		a.recreate();
+	}
+	
 	
 	private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
     		Intent i = new Intent(getApplicationContext(), RatingActivity.class);
     		i.putExtra("id", getIntent().getStringExtra("id"));
     		i.putExtra("name", getIntent().getStringExtra("name"));	
-    		startActivity(i);
+    		startActivityForResult(i, 0);
         }
 	};
 }
