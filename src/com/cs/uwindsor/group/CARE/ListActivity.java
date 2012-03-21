@@ -42,6 +42,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.cs.uwindsor.group.CARE.TypeActivity.MyOnItemSelectedListener;
+import com.cs.uwindsor.group.CARE.adapters.SimpleAdapter;
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
 import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.utils.ListUtils;

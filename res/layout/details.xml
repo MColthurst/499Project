@@ -8,15 +8,28 @@
 	    android:layout_width="780dip"
 	    android:layout_height="fill_parent"
 	    android:layout_centerInParent="true"
-	    android:background="@color/opaque_black"
+	    android:background="@color/White"
 	    android:padding="15dip" >
 
+	   	<TextView
+	        android:id="@+id/name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentLeft="true"
+	        android:text="@string/name"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textSize="30dip" >
+	    </TextView>
+	    
 	    <ImageView
 	        android:id="@+id/picture"
 	        android:layout_width="185dip"
 	        android:layout_height="278dip"
 	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="40dp"
 	        android:layout_alignRight="@+id/ratingBar1"
 	        android:layout_marginBottom="10dip"
 	        android:scaleType="fitXY"
@@ -41,52 +54,122 @@
 	    </RatingBar>
 
 	    <TextView
-	        android:id="@+id/name"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignTop="@+id/picture"
-	        android:layout_marginLeft="22dp"
-	        android:layout_toRightOf="@+id/picture"
-	        android:text="@string/name"
-	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textSize="30dip" >
-	    </TextView>
-
-	    <TextView
 	        android:id="@+id/type"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/name"
-	        android:layout_below="@+id/name"
+	        android:layout_toRightOf="@+id/picture"
+	        android:layout_alignTop="@+id/picture"
+	        android:layout_marginLeft="30dp"
 	        android:text="@string/type"
-	        android:textAppearance="?android:attr/textAppearanceLarge" >
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" >
 	    </TextView>
-
-	    <Button
-	        android:id="@+id/rate_carseat"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/ratingBar1"
-	        android:layout_below="@+id/ratingBar1"
-	        android:text="Rate/Review" />
 
-	    <TextView
-	        android:id="@+id/desc"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/type"
-	        android:layout_marginTop="100dp"
-	        android:text="@string/details"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-	    <TextView
-	        android:id="@+id/price"
+	   	<TextView
+	        android:id="@+id/brand"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/type"
 	        android:layout_below="@+id/type"
-	        android:text="@string/price"
+	        android:text="Brand"
+	        android:textColor="#000000"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	    
+	    <TextView
+	        android:id="@+id/price"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/brand"
+	        android:layout_below="@+id/brand"
+	        android:text="@string/price"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	    
+	   	 <TextView
+	        android:id="@+id/desc"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/type"
+	        android:layout_marginTop="150dp"
+	        android:scrollbars="vertical"
+	        android:maxHeight="200dp"
+	        android:text="@string/details"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	   	 
+	   	 <TextView
+	        android:id="@+id/samplereview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"	        
+	        android:layout_below="@+id/ratingBar1"
+	        android:layout_marginTop="20dp"
+	        android:text="Most Recent Review"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	   	 
+	   	 <TextView
+	        android:id="@+id/samplereviewname"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/ratingBar1"
+	        android:layout_marginTop="50dp"
+	        android:text="Reviewer Name"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	   	 	   	 
+	   	 <TextView
+	        android:id="@+id/samplereviewrating"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/ratingBar1"
+	        android:layout_marginTop="70dp"
+	        android:text="num of stars"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	   	 	   	 	   	 	   	 
+	   	 <TextView
+	        android:id="@+id/samplereviewcomment"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/ratingBar1"
+	        android:layout_marginTop="100dp"
+	        android:maxWidth="240dp"
+	        android:text="Review................................................................................................"
+	        android:textColor="#000000"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+	   	 
+	   	<Button
+	        android:id="@+id/rate_carseat"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/ratingBar1"
+	        android:layout_below="@+id/samplereviewcomment"
+	        android:layout_marginTop="20dp"
+	        android:text="Write A Review" 
+	        android:textColor="#000000"
+	        android:background="@drawable/small_button_bg"/>
+	   	
+	   	<Button
+	        android:id="@+id/see_reviews"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/rate_carseat"
+	        android:layout_alignBottom="@+id/rate_carseat"
+	        android:layout_marginLeft="30dp"
+	        android:text="See All Reviews" 
+	        android:textColor="#000000"
+	        android:background="@drawable/small_button_bg"/>
+
+	   	<TextView
+	   	    android:id="@+id/numratings"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="wrap_content"
+	   	    android:layout_below="@+id/ratingBar1"
+	   	    android:layout_alignLeft="@+id/ratingBar1"
+	   	    android:text="(6 ratings)"
+	   	    android:textAppearance="?android:attr/textAppearanceSmall"
+	   	    android:textColor="#000000" />
+
 	</RelativeLayout>
 
 </RelativeLayout>

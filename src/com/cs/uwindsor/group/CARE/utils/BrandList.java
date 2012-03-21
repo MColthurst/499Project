@@ -27,14 +27,12 @@ public class BrandList {
 	private static AsyncHttpClient client = new AsyncHttpClient();
 	static String xml = new String();
 	static ArrayList<CharSequence> list = new ArrayList<CharSequence>();
-	static boolean r = false;
 	
 	public static void List(Context context){
 			
 			final Context that = (Context)context;
 			
 			list.add("Any");
-			//list.add("any");
 			
 			client.get(baseURL, new AsyncHttpResponseHandler(){
 				
@@ -74,7 +72,6 @@ public class BrandList {
 					Toast toast = Toast.makeText(that, "Internet not connected... Please connect and try again.",
 							Toast.LENGTH_LONG);
 					toast.show();
-					r = true;
 				}
 
 				@Override

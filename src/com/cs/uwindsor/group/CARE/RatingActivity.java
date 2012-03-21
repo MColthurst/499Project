@@ -41,7 +41,7 @@ public class RatingActivity extends Activity{
 		main = (TextView) findViewById(R.id.mainReviewText);
 		name = (EditText) findViewById(R.id.nameField);
 		comment = (EditText) findViewById(R.id.commentField);
-		rating = (RatingBar) findViewById(R.id.ratingBar1);
+		rating = (RatingBar) findViewById(R.id.ratingBar2);
 		submit = (Button) findViewById(R.id.rateButton);
 		
 		main.setText("Please Rate and Review the " + getIntent().getStringExtra("name"));
@@ -63,19 +63,22 @@ public class RatingActivity extends Activity{
         		map.put("name", name.getText().toString());
         		review[1] = name.getText().toString();
         	}
+        	else review[1] = "Anonymous";
         	
         	if(comment.getText().toString() != null){
         		map.put("comment", comment.getText().toString());
         		review[2] = comment.getText().toString();
         	}
-        	
+        	else
+        		review[2] = "No Comment";
+        			
         	String url = URLbuilder.buildurl(map, baseURL);
         	
         	client.post(url, new AsyncHttpResponseHandler(){
     			
     			@Override
     			public void onSuccess (String response) {
-    				i.putExtra("name", review);
+    				i.putExtra("review", review);
     				setResult(RESULT_OK, i);
     				Log.d("response: ", response);
     			}

@@ -136,7 +136,7 @@ public class SearchActivity extends Activity{
     	Map<String, String> map = new TreeMap<String, String>();
 		map.put("name", name.getText().toString());
 		map.put("make", make);
-		map.put("price", price.getText().toString());
+		map.put("price", price.getText().toString().replace("$", ""));
 		map.put("type", getType());
 		map.put("rating", rating);
 		map.put("sort", sort);

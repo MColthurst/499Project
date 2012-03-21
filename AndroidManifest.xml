@@ -22,6 +22,7 @@
         	<activity android:name=".ListActivity"></activity>
         	<activity android:name=".DetailsActivity"></activity>
         	<activity android:name=".RatingActivity"></activity>
+        	<activity android:name=".ReviewsActivity"></activity>
     </application>
 
 </manifest>
