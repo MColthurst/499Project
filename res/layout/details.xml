@@ -133,7 +133,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/ratingBar1"
 	        android:layout_marginTop="100dp"
-	        android:maxWidth="240dp"
+	        android:maxWidth="350dp"
 	        android:text="Review................................................................................................"
 	        android:textColor="#000000"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -166,7 +166,7 @@
 	   	    android:layout_height="wrap_content"
 	   	    android:layout_below="@+id/ratingBar1"
 	   	    android:layout_alignLeft="@+id/ratingBar1"
-	   	    android:text="(6 ratings)"
+	   	    android:text="(6 reviews)"
 	   	    android:textAppearance="?android:attr/textAppearanceSmall"
 	   	    android:textColor="#000000" />
 

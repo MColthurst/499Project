@@ -13,6 +13,8 @@
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
         android:text="Enter your childs Age, Height and Weight to find car seats for them based on Ontario traffic laws"
+        android:textSize="14pt"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
