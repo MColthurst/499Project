@@ -3,12 +3,7 @@ package com.cs.uwindsor.group.CARE;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
-import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
-import com.cs.uwindsor.group.CARE.utils.URLbuilder;
-
 import android.app.Activity;
-import android.app.Instrumentation.ActivityResult;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +11,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
+import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
+import com.cs.uwindsor.group.CARE.utils.URLbuilder;
 
 public class RatingActivity extends Activity{
 	private static final String baseURL = "http://care.cs.uwindsor.ca/rate.php?";

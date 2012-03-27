@@ -4,18 +4,15 @@ import java.util.List;
 
 import org.w3c.dom.Element;
 
-import com.cs.uwindsor.group.CARE.R;
-import com.cs.uwindsor.group.CARE.R.id;
-import com.cs.uwindsor.group.CARE.R.layout;
-
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.cs.uwindsor.group.CARE.R;
 
 public class SimpleAdapter extends BaseAdapter {
 

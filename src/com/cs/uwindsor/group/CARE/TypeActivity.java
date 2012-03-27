@@ -23,7 +23,9 @@ public class TypeActivity extends Activity{
 	String Height = new String();
 	String Weight = new String();
 
-	
+	/**
+	 * Setup Spinners for the three fields and button to submit.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -54,6 +56,12 @@ public class TypeActivity extends Activity{
         wSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
 	}
 	
+	/**
+	 * 
+	 * Changes the value of Height, Weight or Age dependent on which Parent Spinner is changed.
+	 * @author Matt
+	 *
+	 */
 	public class MyOnItemSelectedListener implements OnItemSelectedListener {
 
 	    public void onItemSelected(AdapterView<?> parent,
@@ -77,6 +85,10 @@ public class TypeActivity extends Activity{
 	    }
 	}
 	
+	/**
+	 * When submit button is clicked calculate the type of car seat needed
+	 * also check if one or more values not set and give a warning.
+	 */
     private OnClickListener tListener = new OnClickListener() {
         public void onClick(View v) {
         	Map<String, String> map = new HashMap<String, String>();

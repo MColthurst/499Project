@@ -34,7 +34,7 @@ public class HTTPClient {
 		Example Usage: 
 			getRequest("http://care.cs.uwindsor.ca/query.php?price=100&rating=2");
 	*/
-    private String getRequest(String url){
+    public String getRequest(String url){
     	try {
             HttpGet get = new HttpGet(url);
             response = client.execute(get);  

@@ -1,21 +1,13 @@
 package com.cs.uwindsor.group.CARE.utils;
 
-import java.io.IOException;
 import java.util.Map;
 
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.cs.uwindsor.group.CARE.ListActivity;
-import com.cs.uwindsor.group.CARE.db.XMLHelper;
 import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
 import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 

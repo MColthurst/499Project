@@ -1,9 +1,7 @@
 package com.cs.uwindsor.group.CARE.utils;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -15,7 +13,6 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.cs.uwindsor.group.CARE.ListActivity;
 import com.cs.uwindsor.group.CARE.SearchActivity;
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
 import com.cs.uwindsor.group.CARE.db.XMLHelper;
@@ -28,6 +25,10 @@ public class BrandList {
 	static String xml = new String();
 	static ArrayList<CharSequence> list = new ArrayList<CharSequence>();
 	
+	/**
+	 * Method to get Brand list from server and create a new SearchActivity with that list.
+	 * @param context
+	 */
 	public static void List(Context context){
 			
 			final Context that = (Context)context;

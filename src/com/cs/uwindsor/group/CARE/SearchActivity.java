@@ -1,7 +1,6 @@
 package com.cs.uwindsor.group.CARE;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -14,13 +13,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
-import com.cs.uwindsor.group.CARE.utils.BrandList;
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
 public class SearchActivity extends Activity{
@@ -36,6 +33,9 @@ public class SearchActivity extends Activity{
 	String xml = new String();
 	XMLAdapter xmlAdapter;
 	
+	/**
+	 * 
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);

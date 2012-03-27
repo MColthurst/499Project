@@ -75,21 +75,27 @@ public class DetailsActivity extends Activity{
 	    if(getIntent().hasExtra("newReview")){
 	    	String[] review = getIntent().getStringArrayExtra("newReview");
 	    	reviewRating.setText("Rating: "+review[0]+"/5 Stars");
-	    	reviewName.setText("By: "+review[1]);
-	    	reviewComment.setText(review[2]);
+    		if(review[1].length() >= 1)
+    			reviewName.setText("By: "+review[1]);
+    		else
+    			reviewName.setText("By: Anonymous");
+    		if(review[2].length() >= 1)
+    			reviewComment.setText(review[2]);
+    		else
+    			reviewComment.setText("No Comment");
 	    }
 	    else{
 	    	String[] review = ReviewUtils.firstReview(getIntent().getStringArrayListExtra("reviews"));
 	    	if(review!=null){
 	    		reviewRating.setText("Rating: "+review[0]+"/5 Stars");
-	    		if(review[1].equals(""))
-	    			reviewName.setText("By: Anonymous");
-	    		else
+	    		if(review[1].length() >= 1)
 	    			reviewName.setText("By: "+review[1]);
-	    		if(review[2].equals(""))
-	    			reviewComment.setText("No Comment");
 	    		else
+	    			reviewName.setText("By: Anonymous");
+	    		if(review[2].length() >= 1)
 	    			reviewComment.setText(review[2]);
+	    		else
+	    			reviewComment.setText("No Comment");
 	    	}
 	    	else{
 	    		reviewRating.setText("");
