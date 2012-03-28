@@ -21,7 +21,13 @@ import org.xml.sax.SAXException;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
+/**
+ * This was originally made for a different project that used an actual XML database
+ * so there is a lot of unused methods that can be removed the only ones used in this
+ * project are the constructors and the getAllRecords() method
+ * @author Matt
+ *
+ */
 public class XMLAdapter implements Parcelable, DBAdapter<Element> {
 
     private String resourceName;

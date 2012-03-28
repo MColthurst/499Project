@@ -9,6 +9,11 @@ import android.widget.Button;
 
 import com.cs.uwindsor.group.CARE.utils.BrandList;
 
+/**
+ * Main Activity that displays the main screen with two button options.
+ * @author Matt
+ *
+ */
 public class MainActivity extends Activity {
 	/*
 	 * Buttons for Type and Search Activities

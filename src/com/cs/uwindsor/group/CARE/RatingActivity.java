@@ -19,6 +19,13 @@ import com.cs.uwindsor.group.CARE.http.AsyncHttpClient;
 import com.cs.uwindsor.group.CARE.http.AsyncHttpResponseHandler;
 import com.cs.uwindsor.group.CARE.utils.URLbuilder;
 
+/**
+ * Activity to add a new rating and submit it to the server. 
+ * 	also responds to the creating activity in order to update
+ * 	some of the values in that activity once the rating is submitted.
+ * @author Matt
+ *
+ */
 public class RatingActivity extends Activity{
 	private static final String baseURL = "http://care.cs.uwindsor.ca/rate.php?";
 	private static AsyncHttpClient client = new AsyncHttpClient();
@@ -31,6 +38,9 @@ public class RatingActivity extends Activity{
 	Button submit;
 	DetailsActivity a = new DetailsActivity();
 	
+	/**
+	 * Creation method to set up all the fields.
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,6 +58,10 @@ public class RatingActivity extends Activity{
         
 	}
 	
+	/*
+	 * submit listener, submits the review to the server and sets up the array
+	 * 	that will be returned to the parent activity.
+	 */
     private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
         	Map<String, String> map = new HashMap<String, String>();
@@ -78,7 +92,7 @@ public class RatingActivity extends Activity{
     			public void onSuccess (String response) {
     				i.putExtra("review", review);
     				setResult(RESULT_OK, i);
-    				Log.d("response: ", response);
+    				//Log.d("response: ", response);
     			}
 
     			@Override

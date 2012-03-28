@@ -14,6 +14,13 @@ import android.widget.TextView;
 import com.cs.uwindsor.group.CARE.R;
 import com.cs.uwindsor.group.CARE.utils.ReviewUtils;
 
+/**
+ * Adapter for the list of reviews
+ * Almost the same as the Simple adapter, Would be possible to use only one
+ * but it was simpler to copy and alter it for now.
+ * @author Matt
+ *
+ */
 public class ReviewAdapter extends BaseAdapter {
 
 	private Activity activity;

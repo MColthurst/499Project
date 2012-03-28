@@ -17,6 +17,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+/**
+ * Activity for searching based only on Age, Weight and Height
+ * @author Matt
+ *
+ */
 public class TypeActivity extends Activity{
 	Button button;
 	String Age = new String();
@@ -68,15 +73,15 @@ public class TypeActivity extends Activity{
 	        View view, int pos, long id) {
 	    	if(parent.equals(findViewById(R.id.Height))){
 	    		Height = parent.getItemAtPosition(pos).toString();
-	    		Log.d("Spinner", "Height was set to " + Height);
+	    		//Log.d("Spinner", "Height was set to " + Height);
 	    	}
 	    	else if(parent.equals(findViewById(R.id.Weight))){
 	    		Weight = parent.getItemAtPosition(pos).toString();
-	    		Log.d("Spinner", "Weight was set to " + Weight);
+	    		//Log.d("Spinner", "Weight was set to " + Weight);
 	    	}
 	    	else{
 	    		Age = parent.getItemAtPosition(pos).toString();
-	    		Log.d("Spinner", "Age was set to " + Age);
+	    		//Log.d("Spinner", "Age was set to " + Age);
 	    	}
 	    }
 

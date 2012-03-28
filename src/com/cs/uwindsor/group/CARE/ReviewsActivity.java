@@ -10,6 +10,11 @@ import android.widget.ListView;
 
 import com.cs.uwindsor.group.CARE.adapters.ReviewAdapter;
 
+/**
+ * Activity to display all the reviews for a given car seat.
+ * @author Matt
+ *
+ */
 public class ReviewsActivity extends Activity{
 	ArrayList<String> records = new ArrayList<String>();
 	

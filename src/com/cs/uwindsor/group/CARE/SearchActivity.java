@@ -20,6 +20,11 @@ import android.widget.TextView;
 import com.cs.uwindsor.group.CARE.db.XMLAdapter;
 import com.cs.uwindsor.group.CARE.utils.SearchUtils;
 
+/**
+ * Activity for executing more detailed search queries
+ * @author Matt
+ *
+ */
 public class SearchActivity extends Activity{
 	Button button;
 	RadioGroup type;
@@ -34,7 +39,10 @@ public class SearchActivity extends Activity{
 	XMLAdapter xmlAdapter;
 	
 	/**
-	 * 
+	 * Create method to Set up fields and button
+	 * The brand menu is done slightly differently than the other spinners
+	 * since it is not being built from a local resource but rather 
+	 * getting a list of unique values from the server.
 	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +90,9 @@ public class SearchActivity extends Activity{
         button.setOnClickListener(sListener);     
 	}
 	
+	/**
+	 * Button listener to submit the search when the button is clicked
+	 */
     private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
         	Log.d("text is ", name.getText().toString());
@@ -89,6 +100,11 @@ public class SearchActivity extends Activity{
         }
     };
 
+    /**
+     * Listener for the various spinners in the activity, sets values when they are changed. 
+     * @author Matt
+     *
+     */
     private class MyOnItemSelectedListener implements OnItemSelectedListener {
 
     	    public void onItemSelected(AdapterView<?> parent,
@@ -132,6 +148,10 @@ public class SearchActivity extends Activity{
     	    }
     }
     
+    /**
+     * Map builder to create map of key/value pairs to be sent to the Url builder.
+     * @return
+     */
 	private Map<String, String> buildmap() {
     	Map<String, String> map = new TreeMap<String, String>();
 		map.put("name", name.getText().toString());
@@ -144,6 +164,11 @@ public class SearchActivity extends Activity{
 		return map;
 	}
 
+	/**
+	 * Since the type is stored as an int in the DB here I convert the selection
+	 * to its coresponding value.
+	 * @return
+	 */
 	private String getType() {
 		final int B0 = R.id.radio0;
 		final int B1 = R.id.radio1; 

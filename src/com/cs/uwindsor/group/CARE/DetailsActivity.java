@@ -15,6 +15,15 @@ import android.widget.TextView;
 import com.cs.uwindsor.group.CARE.adapters.ImageLoader;
 import com.cs.uwindsor.group.CARE.utils.ReviewUtils;
 
+
+/**
+ * Most complex Activity to build since there is so many fields.
+ *  also updates some fields upon recreating the Activity.
+ * Uses ImageLoader to load images from the servers imgs/ folder.
+ * 
+ * @author Matt
+ *
+ */
 public class DetailsActivity extends Activity{
 	Activity a = new Activity();
 	String imgURL = "http://care.cs.uwindsor.ca/imgs/";
@@ -34,6 +43,9 @@ public class DetailsActivity extends Activity{
 	Button rate;
 	Button reviews;
 	
+	/**
+	 * Create method lots of fields to populate with values from intent. 
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.details);
@@ -61,7 +73,7 @@ public class DetailsActivity extends Activity{
 	    brand.setText("Manufacturer: "+getIntent().getStringExtra("make"));
 	    numRatings.setText("("+getIntent().getStringExtra("ratingcount")+" reviews)");
 	    
-	    
+	    //Since type is stored as an int must parse and set here.
 	    switch (Integer.parseInt(getIntent().getStringExtra("type"))){
 	    case 1: type.setText("Seat Type: Rear Facing Carseat");
 	    break;
@@ -72,6 +84,14 @@ public class DetailsActivity extends Activity{
 	    default: type.setText("");
 	    }
 	    
+	    
+	    /*Sets the review to the newly created one if one exists
+	     *BUG -- there is a bug here where when a new review is made and the app returns 
+	     *	to the details page if there was no name or comment entered then those fields
+	     *	are left blank instead of being populated with "Anonymous" and "No Comment"
+	     *	I've tried a number of ways to check if the string is empty or null or less than
+	     *	1 character in length but none have worked. I assume there is an easy fix. 
+	     */
 	    if(getIntent().hasExtra("newReview")){
 	    	String[] review = getIntent().getStringArrayExtra("newReview");
 	    	reviewRating.setText("Rating: "+review[0]+"/5 Stars");
@@ -84,6 +104,7 @@ public class DetailsActivity extends Activity{
     		else
     			reviewComment.setText("No Comment");
 	    }
+	    //Otherwise get the first review from the list and put the values in.
 	    else{
 	    	String[] review = ReviewUtils.firstReview(getIntent().getStringArrayListExtra("reviews"));
 	    	if(review!=null){
@@ -97,6 +118,7 @@ public class DetailsActivity extends Activity{
 	    		else
 	    			reviewComment.setText("No Comment");
 	    	}
+	    	//If there is no reviews then let the user know
 	    	else{
 	    		reviewRating.setText("");
 	    		reviewName.setText("No Reviews Yet");
@@ -104,7 +126,14 @@ public class DetailsActivity extends Activity{
 	    	}
 	    		
 	    }
-	    	
+	    
+	    // Set the new avg rating upon recreating the activity
+	    /*
+	     * BUG -- There is a bug that is causing the new rating not to be set
+	     * 	I don't know why since it is being changed in the same way as the
+	     * 	review counter and the new review. There must be something with the
+	     * 	android RatingBar 
+	     */
 	    if(getIntent().hasCategory("newRating")){
 	    	Log.d("newRating", String.valueOf(getIntent().getFloatExtra("newRating", 0)));
 	    	rating.setIsIndicator(false);
@@ -116,6 +145,7 @@ public class DetailsActivity extends Activity{
 	    	rating.setIsIndicator(true);
 	    }
 	    
+	    //Get the image and display it.
 		imageLoader = new ImageLoader(this.getApplicationContext());
 		ImageView image = (ImageView) findViewById(R.id.picture);
 		imageLoader.DisplayImage(imgURL+getIntent().getStringExtra("img"), a, image);
@@ -125,6 +155,10 @@ public class DetailsActivity extends Activity{
 		
 	}
 	
+	/**
+	 * When the child activity successfully completes set the new values of rating, reviewcount
+	 * 	and the new review and then recreate the activity.
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -149,7 +183,9 @@ public class DetailsActivity extends Activity{
 		}
 	}
 	
-	
+	/**
+	 * Listener to listen to the Rate button and start a RatingActivity onClick
+	 */
 	private OnClickListener sListener = new OnClickListener() {
         public void onClick(View v) {
     		Intent i = new Intent(getApplicationContext(), RatingActivity.class);
@@ -159,6 +195,9 @@ public class DetailsActivity extends Activity{
         }
 	};
 	
+	/**
+	 * Listener to listen to the Reviews button and start a ReviewsActivity onClick
+	 */
 	private OnClickListener rListener = new OnClickListener() {
         public void onClick(View v) {
     		Intent i = new Intent(getApplicationContext(), ReviewsActivity.class);

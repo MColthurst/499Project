@@ -14,6 +14,11 @@ import android.widget.TextView;
 
 import com.cs.uwindsor.group.CARE.R;
 
+/**
+ * Adapter for the list of car seats.
+ * @author Matt
+ *
+ */
 public class SimpleAdapter extends BaseAdapter {
 
 	private Activity activity;
